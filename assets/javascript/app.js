@@ -1,4 +1,4 @@
-$("#begin").on("click", function() {
+$("#begin").on(click, function() {
   hereWeGo();
 });
 
@@ -125,15 +125,15 @@ function calculateScore() {
   let myButton = $("<button>")
   myButton.text("Play again")
   $("#restartButton").append(myButton)
-  $("#restartButton").on("click", function () {
+  $("#restartButton").on(click, function () {
     $("#triviaGame").empty();
     game.counter = 60;
     hereWeGo();
-    $("restartButton").empty();
+    $("#restartButton").empty();
   });
 };
 
-$("submitButton").on("click", function() {
+$("submitButton").on(click, function() {
   clearInterval(time);
   $("#timer").empty();
   calculateScore();
