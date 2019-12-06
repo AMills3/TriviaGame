@@ -13,7 +13,7 @@ body, html {
   top: 0;
   right: 400px;
   font-size: 25px;
-  color: orange;
+  color: darkmagenta;
 }
 
 @media (max-width: 768px) {
