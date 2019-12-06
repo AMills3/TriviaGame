@@ -1,6 +1,6 @@
-$("#begin").on(click, function() {
+$("#begin").on("click", function() {
   hereWeGo();
-});
+})
 
 let questions = [
   {
@@ -31,7 +31,7 @@ let questions = [
     question: "Randy Moss set a new NFL record for touchdown receptions by a rookie with how many TD catches?",
     answers: ["15", "16", "17", "18"],
     rightAnswer: "17",
-  },
+  }
 ];
 
 let game = {
@@ -41,7 +41,7 @@ let game = {
   timer: function() {
     game.counter--;
     $("#timer").html(game.counter);
-    if(game.counter <=0) {
+    if(game.counter<=0) {
       clearInterval(time);
       $("#timer").empty();
       calculateScore();
@@ -133,7 +133,7 @@ function calculateScore() {
   });
 };
 
-$("submitButton").on(click, function() {
+$("submitButton").on("click", function() {
   clearInterval(time);
   $("#timer").empty();
   calculateScore();
