@@ -58,21 +58,25 @@ function hereWeGo() {
   $("begin").remove();
   time = setInterval(game.timer, 1000)
   for (var i = 0; i < questions.length; i++) {
-    $("#triviaGame").append("<h3>" + questions[i].question + "</h3>")
+    $("#triviaGame").append("<h2>" + questions[i].question + "</h2>")
       for (var j = 0; j < questions[i].answers.length; j++) {
-        selection = $("<input")
+        selection = $("<input>")
+        breakA = $("<br>")
         selection.attr("type", "radio")
         selection.attr("name", "question" + i)
         selection.attr("value", questions[i].answers[j])
         $("#triviaGame").append(questions[i].answers[j])
         $("triviaGame").append(selection)
-      };
+        $("triviaGame").append(breakA)
+      }
+      breakA = $("<br>")
+      $("#triviaGame").append(breakA)
   };
 
   let sButton = $("<button>")
   sButton.text("Submit")
   $("submitButton").append(sButton)
-};
+}
 
 function calculateScore() {
   $.each($('input[name="question0"]:checked'), function() {
@@ -116,7 +120,7 @@ function calculateScore() {
   });
 
   $("#triviaGame").empty()
-  $("triviaGame").append("<h5" + "The correct answers were: " + "</h5>")
+  $("triviaGame").append("<h5>" + "The correct answers were: " + "</h5>")
   for ( var i = 0; i < questions.length; i++) {
     $("triviaGame").append(questions[i].rightAnswer + "<br>")
   }
@@ -125,13 +129,13 @@ function calculateScore() {
   let myButton = $("<button>")
   myButton.text("Play again")
   $("#restartButton").append(myButton)
-  $("#restartButton").on(click, function () {
+  $("#restartButton").on("click", function () {
     $("#triviaGame").empty();
     game.counter = 60;
     hereWeGo();
     $("#restartButton").empty();
-  });
-};
+  })
+}
 
 $("submitButton").on("click", function() {
   clearInterval(time);
